@@ -1,0 +1,17 @@
+1. IF Absen = Kurang Rajin AND Lembur = Ya AND Dinas_Luar = Ya
+THEN Bonus = Ya
+2. IF Absen = Kurang Rajin AND Lembur = Tidak THEN Bonus = Tidak
+3. IF Absen = Rajin AND Dinas_Luar = Ya THEN Bonus = Ya
+4. IF Absen = Rajin AND Dinas_Luar = Tidak AND Lembur = Tidak
+THEN Bonus = Tidak
+5. IF Absen = Rajin AND Lembur = Ya THEN Bonus = Ya
+6. IF Absen = Kurang Rajin AND Dinas_Luar = Tidak AND Masa_Kerja
+= Baru THEN Bonus = Tidak
+7. IF Absen = Kurang Rajin AND Lembur = Ya AND Masa_Kerja = Lama
+THEN Bonus = Ya
+8. IF Absen = Rajin AND Masa_Kerja = Lama AND Kinerja = Sangat
+Baik THEN Bonus = Ya
+9. IF Absen = Rajin AND Masa_Kerja = Baru AND Lembur = Tidak
+THEN Bonus = Tidak
+10. IF Absen = Kurang Rajin AND Kinerja = Baik AND Dinas_Luar
+= Tidak THEN Bonus = Tidak
