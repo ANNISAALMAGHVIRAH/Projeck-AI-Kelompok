@@ -79,36 +79,31 @@ recall = recall_score(y_test, y_pred)
 # INPUT USER
 # ==========================================
 
-st.title("Machine Learning Penentuan Bonus Karyawan")
+st.markdown("""
+<h1 style='text-align:center; color:#22c55e; font-size:40px; font-weight:800;'>
+🤖 Machine Learning Penentuan Bonus Karyawan
+</h1>
+""", unsafe_allow_html=True)
 
-nama = st.text_input("Nama Karyawan")
+st.markdown("""
+<p style='text-align:center; color:#cbd5e1; margin-top:-10px;'>
+ Machine Learning K-Nearest Neighbor (KNN) Penentuan Bonus Karyawan
+</p>
+""", unsafe_allow_html=True)
 
-hadir1 = st.number_input("Kehadiran Bulan 1", 0, 31)
-hadir2 = st.number_input("Kehadiran Bulan 2", 0, 31)
-hadir3 = st.number_input("Kehadiran Bulan 3", 0, 31)
-hadir4 = st.number_input("Kehadiran Bulan 4", 0, 31)
-hadir5 = st.number_input("Kehadiran Bulan 5", 0, 31)
-hadir6 = st.number_input("Kehadiran Bulan 6", 0, 31)
+nama = st.text_input("👤 Nama Karyawan")
 
-lembur = st.selectbox(
-    "Lembur",
-    ["Ya", "Tidak"]
-)
+hadir1 = st.number_input("📅 Kehadiran Bulan 1", 0, 31)
+hadir2 = st.number_input("📅 Kehadiran Bulan 2", 0, 31)
+hadir3 = st.number_input("📅 Kehadiran Bulan 3", 0, 31)
+hadir4 = st.number_input("📅 Kehadiran Bulan 4", 0, 31)
+hadir5 = st.number_input("📅 Kehadiran Bulan 5", 0, 31)
+hadir6 = st.number_input("📅 Kehadiran Bulan 6", 0, 31)
 
-dinas_luar = st.selectbox(
-    "Dinas Luar",
-    ["Ya", "Tidak"]
-)
-
-masa_kerja = st.selectbox(
-    "Masa Kerja",
-    ["Baru", "Lama"]
-)
-
-kinerja = st.selectbox(
-    "Kinerja",
-    ["Baik", "Sangat Baik"]
-)
+lembur = st.selectbox("⏱ Lembur", ["Ya", "Tidak"])
+dinas_luar = st.selectbox("✈️ Dinas Luar", ["Ya", "Tidak"])
+masa_kerja = st.selectbox("🧑‍💼 Masa Kerja", ["Baru", "Lama"])
+kinerja = st.selectbox("📊 Kinerja", ["Baik", "Sangat Baik"])
 
 # ==========================================
 # PROSES PREDIKSI
@@ -159,22 +154,22 @@ if st.button("Proses Prediksi"):
     # OUTPUT
     # ==========================================
 
-    st.subheader("Hasil Prediksi")
+    st.subheader("Hasil Prediksi 📊")
 
-    st.write("Nama Karyawan :", nama)
+    st.write("👤 Nama Karyawan :", nama)
 
-    st.write("Total Kehadiran :", total_hadir)
+    st.write("📅 Total Kehadiran :", total_hadir)
 
-    st.write("Accuracy :", round(accuracy, 2))
+    st.write("🎯 Accuracy :", round(accuracy, 2))
 
-    st.write("Precision :", round(precision, 2))
+    st.write("📌 Precision :", round(precision, 2))
 
-    st.write("Recall :", round(recall, 2))
+    st.write("🔁 Recall :", round(recall, 2))
 
     if hasil[0] == 1:
-        st.success("Karyawan Mendapat Bonus")
+        st.success("🏆 Karyawan Mendapat Bonus")
     else:
-        st.error("Karyawan Tidak Mendapat Bonus")
+        st.error("❌ Karyawan Tidak Mendapat Bonus")
 
     # ==========================================
     # CONFUSION MATRIX
@@ -191,3 +186,90 @@ if st.button("Proses Prediksi"):
     st.subheader("Confusion Matrix")
 
     st.dataframe(cm_df)
+
+# =====================================================
+# CUSTOM CSS
+# =====================================================
+
+st.markdown("""
+<style>
+
+html, body, [class*="css"]  {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.stApp {
+    background: linear-gradient(to bottom right, #0f172a, #1e293b);
+    color: white;
+}
+
+.main-box {
+    background-color: #111827;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgba(34,197,94,0.3);
+    margin-top: 10px;
+}
+
+.title {
+    text-align: center;
+    font-size: 38px;
+    font-weight: bold;
+    color: #4ade80;
+    margin-bottom: 5px;
+}
+
+.sub-title {
+    text-align: center;
+    color: #cbd5e1;
+    margin-bottom: 25px;
+}
+
+.stTextInput label,
+.stSelectbox label,
+.stNumberInput label {
+    color: white !important;
+    font-weight: bold;
+}
+
+.stTextInput input,
+.stNumberInput input {
+    background-color: #1e293b !important;
+    color: white !important;
+    border-radius: 10px;
+    border: 1px solid #22c55e;
+}
+
+.stSelectbox div[data-baseweb="select"] {
+    background-color: #1e293b !important;
+    color: white !important;
+    border-radius: 10px;
+}
+
+.stButton>button {
+    width: 100%;
+    background: linear-gradient(to right, #22c55e, #16a34a);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 12px;
+    border: none;
+    padding: 12px;
+}
+
+.stButton>button:hover {
+    background: linear-gradient(to right, #4ade80, #22c55e);
+    color: white;
+}
+
+.hasil-box {
+    background-color: #111827;
+    padding: 25px;
+    border-radius: 20px;
+    margin-top: 25px;
+    border-left: 6px solid #22c55e;
+    box-shadow: 0px 0px 15px rgba(34,197,94,0.3);
+}
+
+</style>
+""", unsafe_allow_html=True)
